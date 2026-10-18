@@ -1,0 +1,38 @@
+# Pubblica Sosta Chiara su GitHub Pages a ogni push su main.
+# Prima di pubblicare scrive l'identificativo del commit in sw.js e version.json:
+# le app già installate se ne accorgono e mostrano "Nuova versione disponibile – Aggiorna".
+name: Pubblica su GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stampa la versione
+        run: |
+          BUILD="${GITHUB_SHA::12}-$(date -u +%Y%m%d%H%M)"
+          sed -i "s/__BUILD__/$BUILD/g" sw.js version.json
+          echo "Versione $BUILD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

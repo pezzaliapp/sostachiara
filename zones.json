@@ -1,0 +1,2557 @@
+{
+  "_info": "Dati delle zone di sosta. Coordinate indicative: aggiornale con `node tools/geocode.mjs`. Orari nel formato HH:MM, tariffa in euro all'ora, durata massima in minuti (null = nessun limite).",
+  "cities": {
+    "parma": {
+      "label": "Parma",
+      "center": [
+        44.8015,
+        10.3279
+      ],
+      "zoom": 14,
+      "holidays": [
+        "1-13"
+      ],
+      "operator": "Infomobility S.p.A.",
+      "apps": [
+        "Tap&Park",
+        "EasyPark"
+      ],
+      "note": "Pagamento nei giorni lavorativi (festivi esclusi), tranne l'area sensibile Stazione - sosta veloce, a pagamento 24 ore tutti i giorni. Con il Piano Sosta 2025 si paga anche nella fascia 12:30-14:30; nelle zone 6-15 e nelle aree sensibili indicate c'è 1 ora gratuita al giorno in quella fascia, da selezionare a mano nell'app (non automatica) e attivata progressivamente con la nuova segnaletica. Righe bianco-blu: di sera e di notte solo residenti (Zone/ZTL 1-2 dalle 19:30, altre zone dalle 20:30, fino alle 7:30). Conflitto tra fonti ufficiali: il sito Infomobility indica Zona 1-2 8:30-19:30, la Tabella 1E dell'Allegato 1 al Piano Sosta (maggio 2025) indica 9:00-19:00. Patrono (Sant'Ilario, 13 gennaio) non confermato da fonte comunale.",
+      "source": {
+        "name": "Infomobility Parma - Sosta (tabella tariffe) e Allegato 1 Piano Sosta, tabelle 1E/1F",
+        "url": "https://www.infomobility.pr.it/sosta/",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "pr-ztl",
+              "name": "ZTL 1, 2, 3",
+              "from": "08:30",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora · €3,30 = 2 ore",
+              "max": null,
+              "q": "Piazza Garibaldi",
+              "pos": [
+                44.8015,
+                10.3279
+              ],
+              "night": "Dalle 19:30 alle 7:30 solo residenti",
+              "verify": false
+            },
+            {
+              "id": "pr-z12",
+              "name": "Zona 1 e 2",
+              "from": "08:30",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora · €3,30 = 2 ore (orario 8:30-19:30 secondo il sito; 9:00-19:00 secondo la Tabella 1E del Piano Sosta)",
+              "max": null,
+              "q": "Centro storico",
+              "pos": null,
+              "night": "Dalle 19:30 alle 7:30 solo residenti",
+              "verify": true
+            },
+            {
+              "id": "pr-z615",
+              "name": "Zone da 6 a 15",
+              "from": "09:00",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20 = 1 ora · €2,40 = 2 ore · 1 ora gratuita al giorno nella fascia 12:30-14:30 solo selezionandola in Tap&Park o EasyPark (attivazione progressiva)",
+              "max": null,
+              "q": "Parma",
+              "pos": null,
+              "night": "Dalle 20:30 alle 7:30 solo residenti",
+              "verify": false,
+              "free": true
+            }
+          ]
+        },
+        {
+          "kind": "Aree sensibili",
+          "items": [
+            {
+              "id": "pr-abb",
+              "name": "Abbeveratoia (Ospedale)",
+              "from": "09:00",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20 = 1 ora · €2,50 = 2 ore · €3,80 = 3 ore · 1 ora gratuita al giorno nella fascia 12:30-14:30 solo selezionandola in Tap&Park o EasyPark (attivazione progressiva)",
+              "max": 180,
+              "q": "Strada Abbeveratoia",
+              "pos": [
+                44.8051,
+                10.3078
+              ],
+              "night": null,
+              "verify": false,
+              "free": true
+            },
+            {
+              "id": "pr-bar",
+              "name": "Barilla Center (Largo Harris)",
+              "from": "09:00",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora · €3,00 = 2 ore · 1 ora gratuita al giorno nella fascia 12:30-14:30 solo selezionandola in Tap&Park o EasyPark (attivazione progressiva)",
+              "max": 120,
+              "q": "Largo Paul Harris",
+              "pos": [
+                44.7992,
+                10.3402
+              ],
+              "night": null,
+              "verify": false,
+              "free": true
+            },
+            {
+              "id": "pr-mae",
+              "name": "Piazzale Maestri",
+              "from": "09:00",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20 = 1 ora · €2,40 = 2 ore · 1 ora gratuita al giorno nella fascia 12:30-14:30 solo selezionandola in Tap&Park o EasyPark (attivazione progressiva)",
+              "max": 120,
+              "q": "Piazza Athos Maestri",
+              "pos": [
+                44.7853,
+                10.3383
+              ],
+              "night": null,
+              "verify": false,
+              "free": true
+            },
+            {
+              "id": "pr-pab",
+              "name": "Piazzale Pablo",
+              "from": "08:30",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20 = 1 ora · 1 ora gratuita al giorno nella fascia 12:30-14:30 solo selezionandola in Tap&Park o EasyPark (attivazione progressiva)",
+              "max": 60,
+              "q": "Piazzale Pablo",
+              "pos": [
+                44.8082,
+                10.311
+              ],
+              "night": null,
+              "verify": false,
+              "free": true
+            },
+            {
+              "id": "pr-sol",
+              "name": "Solferino",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora · 1 ora gratuita al giorno nella fascia 12:30-14:30 solo selezionandola in Tap&Park o EasyPark (attivazione progressiva)",
+              "max": 60,
+              "q": "Viale Solferino",
+              "pos": [
+                44.7948,
+                10.3276
+              ],
+              "night": null,
+              "verify": false,
+              "free": true
+            },
+            {
+              "id": "pr-sta",
+              "name": "Stazione (Viale Bottego)",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora",
+              "max": 60,
+              "q": "Viale Vittorio Bottego",
+              "pos": [
+                44.8086,
+                10.3294
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-stv",
+              "name": "Stazione, sosta veloce (Via Monte Altissimo)",
+              "from": "00:00",
+              "to": "24:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 1.5,
+              "tiers": "€0,50 = 20 min · €1,00 = 40 min; 24 ore, festivi compresi",
+              "max": 40,
+              "q": "Via Monte Altissimo",
+              "pos": [
+                44.8096,
+                10.329
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        },
+        {
+          "kind": "Strade sensibili (max 1 ora, pagano anche i residenti)",
+          "items": [
+            {
+              "id": "pr-ss0",
+              "name": "Strada Bixio (escluso parcheggio ex Robuschi)",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Strada Nino Bixio",
+              "pos": [
+                44.7995,
+                10.3211
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-ss1",
+              "name": "Strada D'Azeglio",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Strada Massimo D'Azeglio",
+              "pos": [
+                44.8033,
+                10.319
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-ss2",
+              "name": "Strada della Repubblica",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Strada della Repubblica",
+              "pos": [
+                44.8004,
+                10.3335
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-ss3",
+              "name": "Strada Garibaldi (da via Melloni a viale Fratti)",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Strada Giuseppe Garibaldi",
+              "pos": [
+                44.8078,
+                10.3296
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-ss4",
+              "name": "Strada Imbriani (da p.le Picelli a b.go Parente)",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Strada Matteo Renato Imbriani",
+              "pos": [
+                44.8017,
+                10.3182
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-ss5",
+              "name": "Piazzale San Sepolcro",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Piazzale San Sepolcro",
+              "pos": [
+                44.799,
+                10.331
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-eme",
+              "name": "Via Emilia Est (da p.le Vittorio Emanuele II a via Mantova)",
+              "from": "08:30",
+              "to": "20:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Via Emilia Est",
+              "pos": [
+                44.798,
+                10.3414
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-fra",
+              "name": "Viale Fratti, lato sud (zona DUC)",
+              "from": "08:30",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Viale Antonio Fratti",
+              "pos": [
+                44.8066,
+                10.3358
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-men",
+              "name": "Viale Mentana, lato nord (zona DUC)",
+              "from": "08:30",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Viale Mentana",
+              "pos": [
+                44.804,
+                10.336
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "pr-tre",
+              "name": "Via Trento",
+              "from": "08:30",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; pagano anche i titolari di permesso",
+              "max": 60,
+              "q": "Via Trento",
+              "pos": [
+                44.8129,
+                10.3309
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    },
+    "civ": {
+      "label": "Civitanova Marche",
+      "center": [
+        43.3073,
+        13.7285
+      ],
+      "zoom": 15,
+      "holidays": [
+        "8-18"
+      ],
+      "operator": "Civita.S S.r.l. unipersonale, società del Comune (tel. 0733 822619, lun-ven 10:30-13; civitas.parcheggi@comune.civitanova.mc.it)",
+      "apps": [
+        "Civita.S"
+      ],
+      "note": "Civitas non pubblica online tariffe e orari. Da fonti ufficiali: gestore Civita.S; venerdì e sabato si paga fino alle 24 in piazza XX Settembre, vialetti Nord e Sud e Varco sul Mare (D.G.C. 204/2014, comunicato 2021); parcheggio area portuale ex Anconetani 1 €/ora, 5 €/giorno (comunicato 2022). Gli orari diurni 8:30-13 e 15:30-20 e la tariffa di 1 €/ora vengono da un comunicato del Comune del 2008 relativo a piazza XX Settembre: probabilmente superati, da verificare sul parcometro. L'app Civita.S aggiunge 0,08 € l'ora (comunicato 2023). Nel periodo natalizio la Giunta ha concesso in passato un'ora gratuita aggiuntiva e la sosta gratuita in area ex Anconetani e Tito Speri (12/12/2025-11/1/2026). Patrono: San Marone, 18 agosto.",
+      "source": {
+        "name": "Comune di Civitanova Marche - comunicati e delibere sulla sosta; pagina Civitas Sosta a pagamento",
+        "url": "https://servizi.comune.civitanova.mc.it/civitas/index.php/parcheggi",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Centro",
+          "items": [
+            {
+              "id": "cv-umb",
+              "name": "Corso Umberto I",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Corso Umberto I",
+              "pos": [
+                43.3085,
+                13.7273
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "cv-duc",
+              "name": "Via Duca degli Abruzzi",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Via Duca degli Abruzzi",
+              "pos": [
+                43.3096,
+                13.7273
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "cv-vit",
+              "name": "Corso Vittorio Emanuele",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Corso Vittorio Emanuele",
+              "pos": [
+                43.3037,
+                13.7286
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "cv-pzz",
+              "name": "Piazza XX Settembre e vialetti Nord/Sud",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Piazza XX Settembre",
+              "pos": [
+                43.3073,
+                13.7298
+              ],
+              "night": "Venerdì e sabato a pagamento anche dalle 20:00 alle 24:00 (D.G.C. 204/2014). Il sabato mattina c'è il mercato nei vialetti: controlla i divieti.",
+              "verify": true
+            },
+            {
+              "id": "cv-var",
+              "name": "Varco sul Mare (via Tito Speri)",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Via Tito Speri",
+              "pos": [
+                43.3092,
+                13.7327
+              ],
+              "night": "Venerdì e sabato a pagamento anche dalle 20:00 alle 24:00 (D.G.C. 204/2014).",
+              "verify": true
+            }
+          ]
+        },
+        {
+          "kind": "Altre aree a pagamento",
+          "items": [
+            {
+              "id": "cv-por",
+              "name": "Area portuale ex Anconetani (davanti al Club Vela)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 1.0,
+              "tiers": "€1,00/ora, frazione minima €0,10; intera giornata €5,00 (tariffe 2022)",
+              "max": null,
+              "q": "Club Vela Portocivitanova",
+              "pos": [
+                43.3127,
+                13.7291
+              ],
+              "night": "Dal venerdì alla domenica a pagamento fino alle 24:00.",
+              "verify": true
+            },
+            {
+              "id": "cv-mat",
+              "name": "Via Matteotti",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Viale Giacomo Matteotti",
+              "pos": null,
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "cv-sfs",
+              "name": "Piazzale San Francesco di Sales",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Piazzale San Francesco di Sales",
+              "pos": null,
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "cv-ldv",
+              "name": "Via Caduti del Mare (tra viale Matteotti e via Leonardo da Vinci)",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora o frazione (comunicato del Comune 2008; Civitas non pubblica le tariffe online)",
+              "max": null,
+              "q": "Via Caduti del Mare",
+              "pos": [
+                43.3105,
+                13.7316
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        },
+        {
+          "kind": "Civitanova Alta",
+          "items": [
+            {
+              "id": "cv-alta",
+              "name": "Piazza della Libertà",
+              "slots": [
+                [
+                  "08:30",
+                  "13:00"
+                ],
+                [
+                  "15:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "prima mezz'ora gratuita secondo la stampa locale, poi circa €1,00/ora (non confermato)",
+              "max": null,
+              "q": "Piazza della Libertà, Civitanova Alta",
+              "pos": [
+                43.316,
+                13.6809
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        }
+      ]
+    },
+    "arezzo": {
+      "label": "Arezzo",
+      "center": [
+        43.4633,
+        11.8797
+      ],
+      "zoom": 15,
+      "holidays": [
+        "8-7"
+      ],
+      "operator": "ATAM S.p.A.",
+      "apps": [
+        "Atam Parking"
+      ],
+      "note": "Dati dalle schede ufficiali ATAM di ogni via. Si paga nei giorni feriali e anche la prima domenica del mese (Fiera Antiquaria), sempre 8:00-20:00 la prima domenica, con sosta massima di 4 ore: lo schema non gestisce questo caso, quindi l'app deve trattare la prima domenica come giorno a pagamento. ECCEZIONI: le vie della ZTL (piazza di Murello, piazzetta Madonna del Conforto, via Sansovino, via Eritrea ZTL, via Marconi ZTL, via Rodi ZTL) nei feriali si pagano solo 12:00-17:00; piazzetta Rismondo si paga 15:00-20:00 da lunedì a venerdì e 8:00-20:00 il sabato. Sosta minima 30 minuti (tariffa minima = metà della tariffa oraria). App terze oltre Atam Parking non confermate. Le tariffe sono fissate ogni anno con delibera comunale (Carta dei servizi 2026-27).",
+      "source": {
+        "name": "ATAM Arezzo - Strisce blu (schede per via) e Carta dei servizi 2026-27",
+        "url": "https://www.atamarezzo.it/it/parcheggi/strisce-blu/",
+        "updated": "2026-10"
+      },
+      "firstSundayPaid": true,
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "ar-rotazione",
+              "name": "Alta rotazione: Via Guido Monaco",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.0,
+              "tiers": "€2,00/ora, minimo €1,00 (30 min); max 1 ora; max 4 ore la 1ª domenica del mese",
+              "max": 60,
+              "q": "Via Guido Monaco",
+              "pos": [
+                43.4635,
+                11.8788
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-2euro",
+              "name": "Tariffa €2,00: Via Guadagnoli, Macallè, Margaritone, Niccolò e Pietro Aretino, Spinello, Assab, Rodi",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.0,
+              "tiers": "€2,00/ora, minimo €1,00 (30 min); max 2 ore; max 4 ore la 1ª domenica del mese",
+              "max": 120,
+              "q": "Via Guadagnoli",
+              "pos": [
+                43.4598,
+                11.8805
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-1-50",
+              "name": "Tariffa €1,50: Via Leone Leoni, Porta Buia, Eritrea (da via G. Monaco a via Marcillat), Marcillat, Marconi, Fra' Guittone e piazza Poggio del Sole, Vicolo della Palestra",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50/ora, minimo €0,75 (30 min); max 2 ore; max 4 ore la 1ª domenica del mese",
+              "max": 120,
+              "q": "Via Porta Buia",
+              "pos": [
+                43.4655,
+                11.8766
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-ztla",
+              "name": "ZTL: Piazza di Murello, P.tta Madonna del Conforto, Via Sansovino, Eritrea ZTL, Marconi ZTL, Rodi ZTL (P.tta sul Castro)",
+              "from": "12:00",
+              "to": "17:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50/ora, minimo €0,75 (30 min); max 2 ore; feriali solo 12:00-17:00, la 1ª domenica del mese 8:00-20:00 (max 4 ore)",
+              "max": 120,
+              "q": "Piazza di Murello",
+              "pos": [
+                43.467,
+                11.881
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-1-10",
+              "name": "Tariffa €1,10: Viale Signorelli, Campo di Marte (Via L. B. Alberti), Via XXV Aprile, Via Caduti sul Lavoro, Via Rossellino",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.1,
+              "tiers": "€1,10/ora, minimo €0,55 (30 min); max 2 ore; max 4 ore la 1ª domenica del mese",
+              "max": 120,
+              "q": "Viale Luca Signorelli",
+              "pos": [
+                43.4602,
+                11.8857
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-0-70",
+              "name": "Tariffa €0,70: Via Trento e Trieste, Piave, Arno, Trasimeno, Monte Cervino, Monte Falco, Guelfa, Benedetto Varchi, Marco Perennio, Porta S. Andrea",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.7,
+              "tiers": "€0,70/ora, minimo €0,35 (30 min); max 2 ore (Via Monte Falco max 4 ore); max 4 ore la 1ª domenica del mese",
+              "max": 120,
+              "q": "Via Piave",
+              "pos": [
+                43.4586,
+                11.8759
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-rismondo",
+              "name": "Piazzetta Rismondo",
+              "from": "15:00",
+              "to": "20:00",
+              "days": "lun-ven",
+              "allDays": false,
+              "rate": 0.7,
+              "tiers": "€0,70/ora, minimo €0,35 (30 min); max 2 ore; lun-ven 15:00-20:00, sabato e 1ª domenica del mese 8:00-20:00",
+              "max": 120,
+              "q": "Via Rismondo",
+              "pos": [
+                43.4576,
+                11.8734
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ar-pietri",
+              "name": "Parcheggio stradale Via Pietri",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.7,
+              "tiers": "€0,70/ora, minimo €0,35 (30 min); tariffa giornaliera €5,00; sosta max 24 ore",
+              "max": 1440,
+              "q": "Via Pietri",
+              "pos": [
+                43.4699,
+                11.884
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    },
+    "bologna": {
+      "label": "Bologna",
+      "center": [
+        44.4939,
+        11.3426
+      ],
+      "zoom": 14,
+      "holidays": [
+        "10-4"
+      ],
+      "operator": "Sosty Scarl (dal 1 agosto 2026, subentrata a BomoB) per conto del Comune di Bologna",
+      "apps": [
+        "Sosta+",
+        "EasyPark",
+        "MooneyGo",
+        "Telepass",
+        "Roger",
+        "DropTicket",
+        "Bmove",
+        "TabNet",
+        "Smarticket",
+        "ParkAppy"
+      ],
+      "note": "Dal 1 agosto 2026 la gestione della sosta (ex BomoB) è di Sosty Scarl (data del subentro riportata dalla stampa locale; il sito Sosty conferma il gestore). Si paga nei giorni feriali: centro storico e Cerchia del Mille 8-20, corone 8-18. Nelle aree a rapida rotazione (R/R) si paga dalle 9:00 (centro e viali 9-20, corone 9-18), anche i residenti, e non valgono abbonamenti né agevolazioni: la tariffa oraria R/R non è pubblicata da Sosty né dal Comune, fa fede il cartello. Ticket e abbonamenti di una zona valgono anche nelle zone a tariffa inferiore. Sosta+ è senza commissioni, le altre app possono applicarle. Veicoli ibridi dei residenti pagano la sosta; per elettrici e ibridi con contrassegno possono esserci agevolazioni. Fa fede la segnaletica.",
+      "source": {
+        "name": "Sosty Scarl - Tariffe Aree di Sosta / Aree di sosta",
+        "url": "https://www.sostyscarl.it/tariffe-sosta/",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "bo-mille",
+              "name": "Cerchia del Mille",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 3.9,
+              "tiers": "€3,90 = 1 ora; minimo al parcometro €0,60; nessuna tariffa giornaliera",
+              "max": null,
+              "q": "Via Farini",
+              "pos": [
+                44.4915,
+                11.3455
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "bo-centro",
+              "name": "Centro storico",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.9,
+              "tiers": "€2,90 = 1 ora; minimo al parcometro €0,50; nessuna tariffa giornaliera",
+              "max": null,
+              "q": "Via Castiglione",
+              "pos": [
+                44.488,
+                11.348
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "bo-semicentro",
+              "name": "Corona semicentrale",
+              "from": "08:00",
+              "to": "18:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.2,
+              "tiers": "€2,20 = 1 ora; minimo al parcometro €0,40; giornaliero €11",
+              "max": null,
+              "q": "Via Andrea Costa",
+              "pos": null,
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "bo-periferia",
+              "name": "Corona semiperiferica e periferica",
+              "from": "08:00",
+              "to": "18:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.8,
+              "tiers": "€1,80 = 1 ora; minimo al parcometro €0,30; giornaliero €9",
+              "max": null,
+              "q": "Via Massarenti",
+              "pos": null,
+              "night": null,
+              "verify": false
+            }
+          ]
+        },
+        {
+          "kind": "Aree a rapida rotazione (R/R)",
+          "items": [
+            {
+              "id": "bo-rr-centro",
+              "name": "R/R centro storico e viali",
+              "from": "09:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": null,
+              "tiers": "Tariffa non indicata dalla fonte ufficiale: verificare sul cartello. Niente abbonamenti né agevolazioni residenti.",
+              "max": null,
+              "q": "Viali di circonvallazione",
+              "pos": null,
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "bo-rr-corone",
+              "name": "R/R corone semicentrale e periferica",
+              "from": "09:00",
+              "to": "18:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": null,
+              "tiers": "Tariffa non indicata dalla fonte ufficiale: verificare sul cartello. Niente abbonamenti né agevolazioni residenti.",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": true
+            }
+          ]
+        }
+      ]
+    },
+    "firenze": {
+      "label": "Firenze",
+      "center": [
+        43.7714,
+        11.2542
+      ],
+      "zoom": 14,
+      "holidays": [
+        "6-24"
+      ],
+      "operator": "Servizi alla Strada S.p.A. (SAS) per conto del Comune di Firenze",
+      "apps": [
+        "EasyPark",
+        "MooneyGo",
+        "Telepass",
+        "DropTicket",
+        "TabNet",
+        "BMove",
+        "Tap&Park"
+      ],
+      "note": "Sosta su strada in 5 Zone a Sosta Controllata (ZCS), Disciplinare tecnico ZCS 2025 (vers. 23/12/2025). Stalli 'a rotazione' e 'promiscui' a pagamento nei giorni feriali 08:00-20:00 (salvo diverso atto dirigenziale/cartello). Residenti della ZCS: gratis negli stalli promiscui, e negli stalli a rotazione solo 18:00-09:00 (targa registrata). Prima ora non frazionabile, poi frazioni di 30 min. Il disciplinare 2025 NON prevede piu' la tariffa serale 20:00-08:00 (€1,00/h) presente nel disciplinare 2023: fuori dalla fascia 8-20 la sosta non e' tariffata salvo cartello diverso. Nessuna durata massima generale. Gratis: disabili con contrassegno, car sharing; veicoli elettrici dei residenti solo negli stalli promiscui (con autorizzazione). Fonti non ufficiali (es. Telepass) riportano valori diversi (ZCS 1 €2,40 prima ora, promiscui fino alle 24:00): non confermati dal disciplinare.",
+      "source": {
+        "name": "Servizi alla Strada / Comune di Firenze - Disciplinare Tecnico Sosta ZCS 2025 (vers. 23/12/2025, Delibera DG/2025/00571)",
+        "url": "https://www.serviziallastrada.it/disciplinari/zcs/DISCIPLINARE_SOSTA_ZCS_2025_1.pdf",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "fi-zcs1-rot",
+              "name": "ZCS 1 (es. Piazza Beccaria, Viale F.lli Rosselli, Borgo San Frediano) - stalli a rotazione",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.0,
+              "tiers": "€2,00 prima ora (non frazionabile), poi €3,00/h a frazioni di 30 min (residenti ZCS 1 gratis 18:00-09:00)",
+              "max": null,
+              "q": "Piazza Beccaria",
+              "pos": [
+                43.7699,
+                11.27
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "fi-zcs1-prom",
+              "name": "ZCS 1 (es. Piazza Beccaria, Viale F.lli Rosselli, Borgo San Frediano) - stalli promiscui",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.0,
+              "tiers": "€2,00/h; prima ora non frazionabile, poi frazioni di 30 min (residenti ZCS 1 gratis)",
+              "max": null,
+              "q": "Viale Fratelli Rosselli",
+              "pos": [
+                43.779,
+                11.241
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "fi-zcs2",
+              "name": "ZCS 2 (Campo di Marte: Viale Fanti, Viale dei Mille, Via di Coverciano)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "Promiscui €1,00/h; rotazione €1,00 prima ora poi €2,00/h (frazioni di 30 min)",
+              "max": null,
+              "q": "Viale Manfredo Fanti",
+              "pos": [
+                43.7805,
+                11.282
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "fi-zcs3",
+              "name": "ZCS 3 (Gavinana: Piazza Gavinana, Viale Europa)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "Promiscui €1,00/h; rotazione €1,00 prima ora poi €2,00/h (frazioni di 30 min)",
+              "max": null,
+              "q": "Piazza Gavinana",
+              "pos": [
+                43.7573,
+                11.2752
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "fi-zcs4",
+              "name": "ZCS 4 (Isolotto - Legnaia: Piazza dell'Isolotto, Via di Legnaia, Via Pisana)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "Promiscui €1,00/h; rotazione €1,00 prima ora poi €2,00/h (frazioni di 30 min)",
+              "max": null,
+              "q": "Piazza dell'Isolotto",
+              "pos": [
+                43.7685,
+                11.2125
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "fi-zcs5",
+              "name": "ZCS 5 (Rifredi - Novoli: Piazza Dalmazia, Via di Novoli)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "Promiscui €1,00/h; rotazione €1,00 prima ora poi €2,00/h (frazioni di 30 min)",
+              "max": null,
+              "q": "Piazza Dalmazia",
+              "pos": [
+                43.7963,
+                11.2412
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "fi-careggi",
+              "name": "Area ospedale Careggi (ZCS 5, solo vie elencate: Viale Pieraccini, Largo Brambilla, Piazza di Careggi, Via delle Oblate...)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.5,
+              "tiers": "€0,50/h non frazionabile, solo in: Via Alderotti (tratto), Viale Morgagni (tratto), Largo Palagi, Viale Pieraccini, Via Cosimo il Vecchio, Via delle Oblate, Largo Brambilla, Piazza di Careggi, Via Caccini, Via delle Gore (tratto), Via Aselli, Via N. da Tolentino, Via Berignolo",
+              "max": null,
+              "q": "Largo Giovanni Alessandro Brambilla",
+              "pos": [
+                43.8045,
+                11.247
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    },
+    "milano": {
+      "label": "Milano",
+      "center": [
+        45.4642,
+        9.19
+      ],
+      "zoom": 13,
+      "holidays": [
+        "12-7"
+      ],
+      "operator": "ATM (Azienda Trasporti Milanesi)",
+      "apps": [
+        "EasyPark",
+        "MooneyGo",
+        "Telepass",
+        "DropTicket",
+        "Unipol Move",
+        "Kinto Go",
+        "Wetaxi",
+        "Movesion",
+        "Eni Live",
+        "Bloomfleet",
+        "ACI Sara Go",
+        "D-Service ComerSud",
+        "Parclick",
+        "DKV Mobility"
+      ],
+      "note": "Dati verificati sul tariffario ufficiale ATM (codici ambito sul cartello). Cerchia dei Bastioni (Area C): tutti i giorni, 8-19 €3/h con massimo 2 ore al giorno per singolo codice; 19-24 €3/h solo per le prime 2 ore, poi gratis; 0-8 gratis. Cerchia filoviaria: giorni feriali 8-19 €2/h (codici ..11); 'fascia critica' tutti i giorni 8-24 €2/h (codici 0915,1415,1615,1815,1915,2115,2215); alcuni ambiti (codici ..27, 0212) sono a pagamento anche nei festivi di dicembre; codice 2313 feriali 8-24. Fuori dalla filoviaria: si paga fino alle 19 anche il sabato (Comune/ATM). In arrivo (annuncio Comune 24/07/2026): tariffa unica €15 dalle 19 alle 24 nei giorni di evento all'Arena Santa Giulia; vie da definire con ordinanze successive, non ancora in app. Altri casi particolari: via Impastato (codice 3807) tariffa a scaglioni 6-01; stalli bus turistici €8/h.",
+      "source": {
+        "name": "ATM - Tariffe della sosta su strada (PDF 'tariffe e aree sosta', in vigore dal 1/11/2023)",
+        "url": "https://www.atm.it/it/AltriServizi/Auto/Documents/tariffe%20e%20aree%20sosta.pdf",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "mi-bastioni",
+              "name": "Cerchia dei Bastioni / Area C (codici 0123, 0323-0723)",
+              "from": "08:00",
+              "to": "24:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 3.0,
+              "tiers": "€3,00/ora. 8-19: max 2 ore al giorno per singolo codice ambito. 19-24: €3,00/ora le prime 2 ore, poi gratuito. 0-8 gratis",
+              "max": 120,
+              "q": "Corso di Porta Romana",
+              "pos": [
+                45.456,
+                9.196
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mi-filoviaria",
+              "name": "Cerchia filoviaria 90/91 - standard (codici ..11: ambiti 2, 9-23)",
+              "from": "08:00",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.0,
+              "tiers": "€2,00/ora",
+              "max": null,
+              "q": "Via Giovanni Battista Morgagni",
+              "pos": [
+                45.4795,
+                9.2105
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mi-fascia-critica",
+              "name": "Cerchia filoviaria - fascia critica (codici 0915, 1415, 1615, 1815, 1915, 2115, 2215)",
+              "from": "08:00",
+              "to": "24:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 2.0,
+              "tiers": "€2,00/ora",
+              "max": null,
+              "q": "Ripa di Porta Ticinese",
+              "pos": [
+                45.453,
+                9.173
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "mi-extra",
+              "name": "Fuori dalla filoviaria - standard (codici ..19)",
+              "from": "08:00",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20/ora",
+              "max": null,
+              "q": "Viale Monza",
+              "pos": [
+                45.505,
+                9.224
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mi-ospedali",
+              "name": "Aree ospedaliere extra-filoviaria, tutti i giorni (codici 2518, 3118, 4018, 4318: San Paolo, Istituto Tumori, Niguarda)",
+              "from": "08:00",
+              "to": "19:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 1.2,
+              "tiers": "€1,20/ora, anche festivi. Abbinamento codice-ospedale da stampa (SicurAUTO)",
+              "max": null,
+              "q": "Piazza dell'Ospedale Maggiore",
+              "pos": [
+                45.51,
+                9.187
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "mi-sansiro",
+              "name": "San Siro (codici 3431, 0831; S. Carlo 0817 tutti i giorni)",
+              "from": "08:00",
+              "to": "19:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20/ora; nei giorni di evento a Stadio/Ippodromo: feriali 8-24, festivi 12-24, €1,20/ora oppure €10 giornata intera",
+              "max": null,
+              "q": "Piazzale dello Sport",
+              "pos": [
+                45.477,
+                9.122
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    },
+    "modena": {
+      "label": "Modena",
+      "center": [
+        44.6471,
+        10.9252
+      ],
+      "zoom": 14,
+      "holidays": [
+        "1-31"
+      ],
+      "operator": "Modena Parcheggi",
+      "apps": [
+        "EasyPark",
+        "myCicero (MooneyGo)",
+        "Bmove",
+        "Telepass"
+      ],
+      "note": "Regola generale del Comune: sosta a pagamento lun-sab 8:00-13:00 e 14:30-20:00, festivi esclusi, salvo diversa indicazione. Al parcometro va sempre digitata la targa (anche per i 15 minuti gratuiti nei Margini); il tagliando non va esposto. Tariffe in vigore dal 15 aprile 2026 (elenco vie del Comune). EasyPark applica commissioni, myCicero, Bmove e Telepass sono indicate come gratuite. Gli orari di piazza Dante non sono indicati dal Comune (si paga lun-sab, festivi esclusi). In largo/piazza Sant'Agostino e piazza Dante i residenti autorizzati sono in deroga con abbonamento. Le vie vicino alla stazione (es. viale Crispi) sono in zona Viali. Non incluse: sosta a raso Parco della Creatività/ex AMCM (0,75 €/ora, in attesa di nuova disciplina) e parcheggi in struttura.",
+      "source": {
+        "name": "Comune di Modena - Parcheggi a pagamento",
+        "url": "https://www.comune.modena.it/argomenti/parcheggi/parcheggi-a-pagamento",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "mo-centro",
+              "name": "Posti più vicini al centro",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.2,
+              "tiers": "€2,20/ora",
+              "max": null,
+              "q": "Corso Canal Grande",
+              "pos": [
+                44.644,
+                10.9285
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mo-viali",
+              "name": "Viali e parcheggi a raso Novi Sad",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.45,
+              "tiers": "€1,45/ora",
+              "max": null,
+              "q": "Viale Crispi",
+              "pos": [
+                44.6495,
+                10.933
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mo-margini-int",
+              "name": "Margini interni",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.1,
+              "tiers": "Primi 15 minuti gratis (con targa), poi €1,10/ora",
+              "max": null,
+              "q": "Viale Ludovico Antonio Muratori",
+              "pos": [
+                44.639,
+                10.923
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mo-margini-est",
+              "name": "Margini esterni",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.75,
+              "tiers": "Primi 15 minuti gratis (con targa), poi €0,75/ora",
+              "max": null,
+              "q": "Viale Medaglie d'Oro",
+              "pos": [
+                44.6355,
+                10.934
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mo-dante",
+              "name": "Piazza Dante (stazione)",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.7,
+              "tiers": "Progressiva: 1ª ora €1,70; 2ª ora €2,40; 3ª ora €3,00 (orari non indicati dal Comune)",
+              "max": null,
+              "q": "Piazza Dante Alighieri",
+              "pos": [
+                44.6545,
+                10.929
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "mo-santagostino",
+              "name": "Piazza di Porta / Largo Sant'Agostino",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.4,
+              "tiers": "Progressiva: 1ª ora €2,40; 2ª ora €3,00; 3ª ora €3,65; domenica non a pagamento",
+              "max": null,
+              "q": "Piazza Sant'Agostino",
+              "pos": [
+                44.6475,
+                10.9195
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "mo-exmoi",
+              "name": "Parcheggio ex MOI (via Borelli 90)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.75,
+              "tiers": "€0,75/ora (8-20); tariffa 6 ore €2,65; tariffa 12 ore €5,30 (giorni non indicati dal Comune)",
+              "max": null,
+              "q": "Via Borelli",
+              "pos": [
+                44.66,
+                10.933
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        }
+      ]
+    },
+    "perugia": {
+      "label": "Perugia",
+      "center": [
+        43.1107,
+        12.3892
+      ],
+      "zoom": 14,
+      "holidays": [
+        "1-29"
+      ],
+      "operator": "SIPA (gruppo Saba)",
+      "apps": [
+        "Telepass",
+        "EasyPark",
+        "MooneyGo",
+        "Phonzie",
+        "ParkingMyCar"
+      ],
+      "note": "NESSUNA fonte ufficiale consultabile per la sosta su strada: il sito Saba/SIPA elenca solo i parcheggi in struttura, il sito del Comune non ha pagine sulle strisce blu (ricerca: 0 risultati) e poi blocca con CAPTCHA. Tutti i dati vengono da stampa locale (Umbria24 2018 e 03/2024, La Nazione 06/2024, Il Messaggero, SicurAuto 04/2024) e da Telepass: tutto da verificare. Centro (Piazza Italia, San Francesco): lun-ven 13:00-20:00 e sabato 08:00-20:00; lo schema non gestisce orari diversi per giorno, quindi from/to danno la fascia feriale e il sabato è in tiers. Tariffa del centro discordante: 2,20 €/h (Umbria24 2018, SicurAuto 2024, Telepass) contro 2,30 €/h dopo l'adeguamento Istat riportato da Il Messaggero (articolo senza data leggibile); è indicata 2,30 come dato più recente probabile. Le aree a tariffa unica GIORNALIERA hanno rate null e l'importo in tiers. Domenica e festivi la sosta è libera. Giugno 2024: la Giunta ha tolto 72-74 stalli blu (44 in via Palermo, 10 in via Angeloni, 5 in via Sicilia, 7 in piazza Vittorio Veneto, 6 in via Settevalli).",
+      "source": {
+        "name": "Stampa locale (Umbria24 03/2024, La Nazione 06/2024): nessuna fonte ufficiale disponibile",
+        "url": "https://www.umbria24.it/perugia/strisce-blu-arriva-la-tariffa-giornaliera-in-via-lorenzini-torna-quella-oraria/",
+        "updated": "2024-06"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "pg-centro",
+              "name": "Centro: Piazza Italia, Via e Piazza San Francesco",
+              "from": "13:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.3,
+              "tiers": "€2,30/ora secondo Il Messaggero (adeguamento Istat; prima €2,20/ora), minimo €0,50; lun-ven 13-20, sabato 8-20",
+              "max": null,
+              "q": "Piazza Italia",
+              "pos": [
+                43.1086,
+                12.3893
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "pg-pascoli",
+              "name": "Via Alessandro Pascoli",
+              "from": "13:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": null,
+              "tiers": "€1,50 al giorno (tariffa unica giornaliera); lun-ven 13-20, sabato 8-20",
+              "max": null,
+              "q": "Via Alessandro Pascoli",
+              "pos": [
+                43.111,
+                12.3835
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "pg-lungasosta",
+              "name": "Lunga sosta: Via Bistoni (Cupa), Via del Cortone, Viale San Domenico",
+              "from": "09:00",
+              "to": "19:30",
+              "days": "lun-ven",
+              "allDays": false,
+              "rate": null,
+              "tiers": "€1,50 al giorno (Umbria24 2018); in Viale San Domenico €1,60 al giorno dopo l'adeguamento Istat (Il Messaggero)",
+              "max": null,
+              "q": "Via Victor Ugo Bistoni",
+              "pos": [
+                43.1093,
+                12.383
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "pg-fontivegge",
+              "name": "Fontivegge/stazione: Broletto, Via Palermo, Via Pievaiola",
+              "from": "09:00",
+              "to": "19:30",
+              "days": "lun-ven",
+              "allDays": false,
+              "rate": null,
+              "tiers": "€1,80 al giorno (tariffa unica giornaliera); in Via Pievaiola 54 posti a €1,80/giorno e 20 posti a €1,60/ora (minimo €0,40 per 15 min); in Via Palermo tolti 44 stalli blu (giugno 2024)",
+              "max": null,
+              "q": "Via del Broletto",
+              "pos": [
+                43.1035,
+                12.3735
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "pg-elce-monti",
+              "name": "Elce: Via Monti",
+              "from": "09:00",
+              "to": "19:30",
+              "days": "lun-ven",
+              "allDays": false,
+              "rate": null,
+              "tiers": "€1,80 al giorno (tariffa unica giornaliera)",
+              "max": null,
+              "q": "Via Vincenzo Monti",
+              "pos": [
+                43.1155,
+                12.377
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "pg-elce-lorenzini",
+              "name": "Elce: Via Lorenzini",
+              "from": "09:00",
+              "to": "19:30",
+              "days": "lun-ven",
+              "allDays": false,
+              "rate": 1.3,
+              "tiers": "€1,30/ora",
+              "max": null,
+              "q": "Via Lorenzini",
+              "pos": [
+                43.1165,
+                12.3745
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "pg-angeloni",
+              "name": "Via Mario Angeloni",
+              "from": null,
+              "to": null,
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.4,
+              "tiers": "€1,40/ora, minimo €0,40 (Il Messaggero, adeguamento Istat; prima €1,35); 10 stalli tolti a giugno 2024. Orari non trovati",
+              "max": null,
+              "q": "Via Mario Angeloni",
+              "pos": [
+                43.1045,
+                12.3795
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        }
+      ]
+    },
+    "reggioemilia": {
+      "label": "Reggio nell'Emilia",
+      "center": [
+        44.6983,
+        10.6312
+      ],
+      "zoom": 14,
+      "holidays": [
+        "11-24"
+      ],
+      "operator": "Consorzio TEA (SostaRE)",
+      "apps": [
+        "SostaRE",
+        "EasyPark",
+        "Telepass",
+        "DropTicket"
+      ],
+      "note": "Gestione SostaRE/Consorzio TEA: la convenzione scadeva il 31 maggio 2026 e secondo la stampa locale è prorogata a fine 2026, in attesa del passaggio a una società in house (probabilmente Consorzio ACT): gestore e tariffe potrebbero cambiare. Zone A3/A4, R, B1, B2, C, HC: lun-sab 8-13 e 15-20, festivi esclusi; in B1, B2, C e HC il mercoledì si paga solo 8-13. La sosta gratuita iniziale si attiva solo dal parcometro (targa), una volta al giorno per targa. Zone ospedaliere (ASMN) a pagamento tutti i giorni 7-20 (nuovo piano sosta dal 9 febbraio 2026). Zone periferiche non elencate: D1 e D2 0,50 €/ora lun-sab 8-20; D4 San Lazzaro 0,50 €/ora lun-sab 7-20; parcheggio interrato Marconi 1 €/ora, 8 €/giorno, h24.",
+      "source": {
+        "name": "SostaRE (Consorzio TEA) - sostareonline.it, pagine tariffe zone e centro assistenza",
+        "url": "https://www.sostareonline.it/",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "re-a3a4",
+              "name": "Centro storico (zone A3/A4)",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "15:00",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "Primi 15 minuti gratis (1 volta al giorno, da parcometro), poi €1,00/ora",
+              "max": null,
+              "q": "Piazza Vallisneri",
+              "pos": [
+                44.699,
+                10.628
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "re-r",
+              "name": "Parcheggi a rotazione (zona R)",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "15:00",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "Primi 15 minuti gratis (1 volta al giorno), €1,20 la prima ora, €1,50 ogni ora successiva",
+              "max": null,
+              "q": "Piazza dei Servi",
+              "pos": [
+                44.6995,
+                10.6345
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "re-b1",
+              "name": "Controviali (zona B1)",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "15:00",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.5,
+              "tiers": "Primi 30 minuti gratis (1 volta al giorno), €0,50 la prima ora, €0,70 dalla seconda; mercoledì solo 8-13",
+              "max": null,
+              "q": "Viale Piave",
+              "pos": [
+                44.6955,
+                10.637
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "re-b2",
+              "name": "Stazione FS (zona B2)",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "15:00",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.5,
+              "tiers": "Primi 60 minuti gratis (1 volta al giorno, da parcometro), poi €0,50/ora; mercoledì solo 8-13",
+              "max": null,
+              "q": "Via Lazzaro Sani",
+              "pos": [
+                44.7005,
+                10.646
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "re-c",
+              "name": "Zona C (semicentro)",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "15:00",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.5,
+              "tiers": "Primi 60 minuti gratis (1 volta al giorno, da parcometro); testo ufficiale: €0,50 prime due ore, €0,50 ogni ora aggiuntiva; mercoledì solo 8-13",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "re-h2",
+              "name": "Ospedale - Pronto Soccorso/Dialisi (zona H2)",
+              "from": "07:00",
+              "to": "20:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 3.5,
+              "tiers": "Primi 60 minuti gratis (da parcometro), poi €3,50/ora; per soste lunghe usare la zona H1",
+              "max": null,
+              "q": "Viale Risorgimento",
+              "pos": [
+                44.693,
+                10.66
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "re-h4b",
+              "name": "Ospedale - via Murri e aree interne (zona H4-b)",
+              "from": "07:00",
+              "to": "20:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 1.5,
+              "tiers": "Prime 2 ore gratis (da parcometro), poi €1,50/ora",
+              "max": null,
+              "q": "Via Augusto Murri",
+              "pos": [
+                44.6945,
+                10.6625
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "re-h1",
+              "name": "Ospedale - Piazzale Galeno (zona H1)",
+              "from": "07:00",
+              "to": "20:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": null,
+              "tiers": "€2,00 a mezza giornata (7-13 oppure 13-20), importo fisso; nessuna sosta gratuita",
+              "max": null,
+              "q": "Piazzale Galeno",
+              "pos": [
+                44.6915,
+                10.6605
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    },
+    "roma": {
+      "label": "Roma",
+      "center": [
+        41.8986,
+        12.4769
+      ],
+      "zoom": 13,
+      "holidays": [
+        "6-29"
+      ],
+      "operator": "ATAC S.p.A. (Roma Servizi per la Mobilità per permessi e regole)",
+      "apps": [
+        "EasyPark",
+        "MooneyGo",
+        "Telepass",
+        "Tabnet",
+        "ParkingMyCar",
+        "ParkAppy",
+        "DropTicket",
+        "Smarticket.it"
+      ],
+      "note": "Tariffe confermate da ATAC: €1,00/h fuori ZTL, €1,20/h dentro ZTL; agevolate €0,20 per 15 min (solo parcometro), €4,00 per 8 ore continuative, €70 al mese solare; tariffa di prossimita' in alcune vie non residenziali. Gli ORARI non sono pubblicati in forma testuale da fonti ufficiali consultabili (la mappa interattiva ATAC non e' leggibile senza superare un controllo anti-bot): fonti secondarie indicano di norma 08:00-20:00 (o 08:00-19:00) lun-sab, con estensioni serali nelle zone movida. Tutti gli orari vanno verificati sul cartello. Estensione 2026 (ATAC, disposizione del Dipartimento Mobilita'): conversione in strisce blu degli stalli gratuiti (limite 3 ore non residenti) a Prati, Pinciano, Salario, Trieste, Tiburtino, Nomentano, Trionfale e Ripa, lavori luglio-ottobre 2026. La stampa (agosto 2025) cita una delibera di Giunta, numero non verificato, che estende le strisce blu anche a Pigneto, Ostiense-Garbatella, Porta Portese, San Paolo, EUR, Montesacro e lungomare di Ostia (solo estate): non confermato da fonte ufficiale. Esenti: residenti con permesso, veicoli elettrici e ibridi con targa registrata online (esclusi dual-fuel GPL/metano), car sharing. Grattini cartacei non piu' in vendita dal 30/06/2026, validi fino al 31/12/2026.",
+      "source": {
+        "name": "ATAC - Atac Sosta (strisce blu) e FAQ tariffe",
+        "url": "https://www.atac.roma.it/utility/atac-sosta",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "ro-ztl-centro",
+              "name": "Centro storico dentro ZTL",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20/h (tariffe agevolate 8 ore/mensile non valide in ZTL)",
+              "max": null,
+              "q": "Piazza Venezia",
+              "pos": [
+                41.896,
+                12.4823
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ro-trastevere",
+              "name": "Trastevere (ZTL, zona movida)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20/h",
+              "max": null,
+              "q": "Piazza di Santa Maria in Trastevere",
+              "pos": [
+                41.8894,
+                12.47
+              ],
+              "night": "Fonti secondarie: pagamento serale/notturno ven-sab (fino alle 03:00) in zone movida; non confermato",
+              "verify": true
+            },
+            {
+              "id": "ro-prati",
+              "name": "Prati - Trionfale (fuori ZTL, estensione strisce blu 2026)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00/h; €0,20 per 15 min (solo parcometro); €4,00 per 8 ore continuative; €70 al mese",
+              "max": null,
+              "q": "Piazza Cola di Rienzo",
+              "pos": [
+                41.907,
+                12.465
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ro-semicentro",
+              "name": "Semicentro dentro l'Anello ferroviario (Trieste, Salario, Nomentano, Pinciano, Tiburtino; San Giovanni, Esquilino)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00/h; €0,20 per 15 min (solo parcometro); €4,00 per 8 ore continuative; €70 al mese",
+              "max": null,
+              "q": "Piazza di San Giovanni in Laterano",
+              "pos": [
+                41.8859,
+                12.506
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ro-movida",
+              "name": "San Lorenzo - Testaccio (zone movida fuori ZTL)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00/h fuori ZTL (se lo stallo ricade nel perimetro ZTL vale €1,20/h: verificare cartello)",
+              "max": null,
+              "q": "Piazza dell'Immacolata",
+              "pos": [
+                41.898,
+                12.515
+              ],
+              "night": "Fonti secondarie: pagamento serale/notturno ven-sab (fino alle 03:00); non confermato",
+              "verify": true
+            },
+            {
+              "id": "ro-eur-ostiense",
+              "name": "EUR - Ostiense - Garbatella (estensione annunciata dalla stampa, non confermata)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00/h; €4,00 per 8 ore continuative; €70 al mese",
+              "max": null,
+              "q": "Piazzale Guglielmo Marconi",
+              "pos": [
+                41.8339,
+                12.4708
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ro-prossimita",
+              "name": "Tariffa di prossimità (alcune vie non residenziali)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.5,
+              "tiers": "€0,50 prima ora, €0,50 seconda ora, €2,00 per 12 ore, €3,00 per 16 ore",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ro-ostia",
+              "name": "Ostia lungomare (stagionale estiva)",
+              "from": null,
+              "to": null,
+              "days": "tutti",
+              "allDays": true,
+              "rate": 1.0,
+              "tiers": "€1,00/h (tariffa ordinaria fuori ZTL); sosta a pagamento solo estiva e in alcuni giorni (stampa, non confermato)",
+              "max": null,
+              "q": "Lungomare Paolo Toscanelli",
+              "pos": [
+                41.73,
+                12.278
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        }
+      ]
+    },
+    "torino": {
+      "label": "Torino",
+      "center": [
+        45.0703,
+        7.6869
+      ],
+      "zoom": 13,
+      "holidays": [
+        "6-24"
+      ],
+      "operator": "GTT (Gruppo Torinese Trasporti)",
+      "apps": [
+        "GTT SostAPP",
+        "EasyPark",
+        "Neos Park"
+      ],
+      "note": "Tariffe GTT: ZTL centrale 2,80; ordinaria 1,70; ridotta 1,50; smart 1,20 €/h. Orario lun-sab 8:00-19:30. Nelle aree ospedaliere (Oftalmico A1, Valdese B1, Maria Vittoria D2, Molinette Bramante/Dogliotti, Mauriziano C2, San Giovanni Vecchio A6/A8, Gradenigo E2) il pagamento termina alle 18:30. Le sottozone hanno tratti con tariffe diverse e aree mercatali a pagamento solo 17:00-19:30 nei feriali escluso sabato: vale il cartello. Sospensione estiva 2026: sosta gratuita dal 10 al 23 agosto (Comune di Torino, comunicato 4/6/2026), escluse le ZTL Valentino, Area Romana, Pedonale e Trasporto Pubblico. Dicembre: nel 2025 la zona centrale era a pagamento anche il 7, 8, 14 e 21 dicembre (solo stampa); per il 2026 nessun avviso trovato. App: GTT cita SostAPP, Neos Park ed EasyPark ('ad es.'); altre app (Telepass, MooneyGo ecc.) sono riportate da fonti secondarie e non sono state verificate.",
+      "source": {
+        "name": "GTT - Sosta strisce blu e schede sottozone",
+        "url": "https://www.gtt.to.it/cms/parcheggi/sosta",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone",
+          "items": [
+            {
+              "id": "to-ztl",
+              "name": "ZTL Centrale (Sottozona A, A1-A8)",
+              "from": "08:00",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 2.8,
+              "tiers": "€2,80/ora; in alcuni tratti delle sottozone A €1,70 o €1,50 (vedi cartello)",
+              "max": null,
+              "q": "Piazza Castello",
+              "pos": [
+                45.0711,
+                7.6857
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "to-ordinaria",
+              "name": "Tariffa ordinaria (San Salvario B1, Crocetta/San Secondo C1-C4, Vanchiglia E1, Valentino)",
+              "from": "08:00",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.7,
+              "tiers": "€1,70/ora",
+              "max": null,
+              "q": "Largo Saluzzo",
+              "pos": [
+                45.0547,
+                7.6814
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "to-ridotta",
+              "name": "Tariffa ridotta (Cit Turin D1, San Donato D2, via Monferrato B2)",
+              "from": "08:00",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50/ora; alcuni assi (es. corso Francia) a €1,70",
+              "max": null,
+              "q": "Piazza Bernini",
+              "pos": [
+                45.0765,
+                7.6635
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "to-smart",
+              "name": "Tariffa smart (Campidoglio D3, Pilonetto B3, Vanchiglia/Lungo Dora E2)",
+              "from": "08:00",
+              "to": "19:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20/ora",
+              "max": null,
+              "q": "Via Nicola Fabrizi",
+              "pos": [
+                45.079,
+                7.659
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "to-ospedali",
+              "name": "Zona Ospedali Molinette (corso Bramante, corso Dogliotti)",
+              "from": "08:00",
+              "to": "18:30",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": null,
+              "tiers": "€1,50 o €1,70/ora secondo il tratto (vedi cartello); stessa chiusura alle 18:30 nelle altre aree ospedaliere",
+              "max": null,
+              "q": "Corso Bramante",
+              "pos": [
+                45.0405,
+                7.6745
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    },
+    "trieste": {
+      "label": "Trieste",
+      "center": [
+        45.6495,
+        13.7768
+      ],
+      "zoom": 14,
+      "holidays": [
+        "11-3"
+      ],
+      "operator": "Esatto S.p.A. (principale); Park San Giusto per via del Teatro Romano e via Cadorna; altri gestori sulle Rive (non verificato)",
+      "apps": [
+        "EasyPark",
+        "NeosPark"
+      ],
+      "note": "Tariffe Esatto 2026 da fonte ufficiale: rossa 1,80, gialla 1,30, azzurra 0,80 €/h (in azzurra i primi 30 minuti sono gratis per tutti). La FAQ 2026 non cita la zona verde (Piazzale Straulino), ma la pagina Esatto parla ancora di 'quattro fasce tariffarie': stato della verde non verificabile. Prima ora gratis per disabili con contrassegno e auto elettriche/ibride (tariffa agevolata al parcometro). L'orario lun-sab 8:00-20:00 NON compare su nessuna pagina ufficiale (Esatto e Park San Giusto rimandano al parcometro): fonti secondarie (SicurAUTO 2022, Telepass 'indicativamente'). Le vie delle zone Esatto vengono da un avviso Esatto del 2015. Pagamento Esatto: parcometro, tessera elettronica, EasyPark, NeosPark. Codici EasyPark Park San Giusto: 711 rossa, 712 viola. Le tariffe delle Rive non sono state confermate da nessuna fonte ufficiale.",
+      "source": {
+        "name": "Esatto S.p.A. - Costi dei parcheggi su strada (tariffe 2026)",
+        "url": "https://esattospa.it/domanda-frequente/quali-sono-i-costi-dei-parcheggi-su-strada/",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Zone Esatto",
+          "items": [
+            {
+              "id": "ts-rossa",
+              "name": "Zona rossa (centralissima: via Trento, via Machiavelli, via XXX Ottobre, via Torrebianca)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.8,
+              "tiers": "€1,80 = 1 ora; minimo €0,90 = 30 minuti",
+              "max": null,
+              "q": "Via Machiavelli",
+              "pos": [
+                45.652,
+                13.7705
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ts-gialla",
+              "name": "Zona gialla (centrale: piazza Libertà, via Galatti, via Capitolina, piazza Ospedale, via Slataper)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.3,
+              "tiers": "€1,30 = 1 ora; minimo €0,70 = 30 minuti",
+              "max": null,
+              "q": "Piazza della Libertà",
+              "pos": [
+                45.6567,
+                13.7728
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ts-azzurra",
+              "name": "Zona azzurra (periferica: Largo Roiano)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.8,
+              "tiers": "Primi 30 minuti gratis per tutti; poi €0,80 = 1 ora (minimo €0,40 = 30 minuti)",
+              "max": null,
+              "q": "Largo Roiano",
+              "pos": [
+                45.6645,
+                13.7775
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        },
+        {
+          "kind": "Zone Park San Giusto",
+          "items": [
+            {
+              "id": "ts-psg-viola",
+              "name": "Zona viola (via del Teatro Romano, piazza Forno, via dell'Orologio, via del Mercato Vecchio)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.7,
+              "tiers": "€1,70 = 1 ora; minimo €0,85",
+              "max": null,
+              "q": "Via del Teatro Romano",
+              "pos": [
+                45.6495,
+                13.7725
+              ],
+              "night": null,
+              "verify": true
+            },
+            {
+              "id": "ts-psg-rossa",
+              "name": "Zona rossa Park San Giusto (via Cadorna)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; minimo €0,75",
+              "max": null,
+              "q": "Via Cadorna",
+              "pos": [
+                45.6465,
+                13.766
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        },
+        {
+          "kind": "Rive (Trieste Terminal Passeggeri)",
+          "items": [
+            {
+              "id": "ts-rive",
+              "name": "Rive (zone rossa/gialla/verde/Lanterna)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.4,
+              "tiers": "Rossa €1,40/h (min €0,70 = 30 min); gialla €1,00/h; verde €0,80/h; Lanterna €0,50/h (min €0,30)",
+              "max": null,
+              "q": "Riva Tre Novembre",
+              "pos": [
+                45.6525,
+                13.768
+              ],
+              "night": null,
+              "verify": true
+            }
+          ]
+        }
+      ]
+    },
+    "udine": {
+      "label": "Udine",
+      "center": [
+        46.0625,
+        13.2348
+      ],
+      "zoom": 14,
+      "holidays": [
+        "7-12"
+      ],
+      "operator": "SSM - Sistema Sosta e Mobilità S.p.A.",
+      "apps": [
+        "InPark",
+        "EasyPark"
+      ],
+      "note": "Strisce blu lun-sab 8:00-13:00 e 14:30-20:00, festivi esclusi; controllo tramite targa. Le 4 tariffe orarie (1,50 / 1,20 / 1,00 / 0,60 €/h) sono assegnate alle vie solo nella mappa PDF SSM (agg. 10/2025), non leggibile come testo: per queste fasce non ci sono vie né coordinate. Dal 1/1/2026 le auto esclusivamente elettriche sostano gratis sulle strisce blu (Delibera di Giunta 661/2025), esponendo il libretto di circolazione leggibile dall'esterno. Nuovo piano della sosta IN DISCUSSIONE, non approvato al 6/10/2026 (fonte: stampa): 3 fasce 0,60 / 1,20 / 2,20 €/h, la più cara in zone centrali come piazza Duomo, nuovi abbonamenti 20/30/40 €/mese; obiettivo dichiarato gennaio 2027. Da ricontrollare.",
+      "source": {
+        "name": "SSM - Sosta a raso Udine (pagina e PDF zone a raso agg. 10.2025)",
+        "url": "https://www.ssm.it/la-sosta-a-raso-ssm",
+        "updated": "2026-10"
+      },
+      "groups": [
+        {
+          "kind": "Tariffe su strada",
+          "items": [
+            {
+              "id": "ud-150",
+              "name": "Tariffa 1,50 €/h",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.5,
+              "tiers": "€1,50 = 1 ora; parcometro minimo 30 min, non dà resto; pagamenti 13:00-14:30 valgono dalle 14:30 (cod. InPark 150, EasyPark 17916)",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-120",
+              "name": "Tariffa 1,20 €/h",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.2,
+              "tiers": "€1,20 = 1 ora; parcometro minimo 30 min, non dà resto; pagamenti 13:00-14:30 valgono dalle 14:30 (cod. InPark 120, EasyPark 17915)",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-100",
+              "name": "Tariffa 1,00 €/h",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora; parcometro minimo 30 min, non dà resto; pagamenti 13:00-14:30 valgono dalle 14:30 (cod. InPark 100, EasyPark 17913)",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-060",
+              "name": "Tariffa 0,60 €/h",
+              "slots": [
+                [
+                  "08:00",
+                  "13:00"
+                ],
+                [
+                  "14:30",
+                  "20:00"
+                ]
+              ],
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.6,
+              "tiers": "€0,60 = 1 ora; parcometro minimo 30 min, non dà resto; pagamenti 13:00-14:30 valgono dalle 14:30 (cod. InPark 060, EasyPark 17912)",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-stanziale",
+              "name": "Zona a raso per sosta stanziale",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 1.0,
+              "tiers": "€1,00 = 1 ora; forfait €1,50 al giorno (cod. InPark 3). Giorni non indicati nella fonte",
+              "max": null,
+              "q": null,
+              "pos": null,
+              "night": null,
+              "verify": true
+            }
+          ]
+        },
+        {
+          "kind": "Aree di sosta",
+          "items": [
+            {
+              "id": "ud-colugna",
+              "name": "Area Via Colugna (P3 Ospedale)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "tutti",
+              "allDays": true,
+              "rate": 0.6,
+              "tiers": "€0,60 = 1 ora, tutti i giorni festivi compresi (cod. InPark 6, EasyPark 17921)",
+              "max": null,
+              "q": "Via Colugna 60",
+              "pos": [
+                46.078,
+                13.233
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-vascello",
+              "name": "Area Vascello",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.4,
+              "tiers": "€0,40 = 1 ora; massimo €2,00 al giorno (cod. InPark 1, EasyPark 17920); abbonamento mensile H24 €19",
+              "max": null,
+              "q": "Via del Vascello 10",
+              "pos": [
+                46.0553,
+                13.2456
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-teatro",
+              "name": "Area Teatro",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.4,
+              "tiers": "€0,40 = 1 ora; massimo €2,00 al giorno (cod. InPark 2, EasyPark 17917)",
+              "max": null,
+              "q": "Viale Trieste",
+              "pos": [
+                46.0657,
+                13.2451
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-chiusaforte",
+              "name": "Area Chiusaforte (scambiatore, bus linea 1)",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.4,
+              "tiers": "€0,40 = 1 ora; massimo €2,00 al giorno (cod. InPark 4, EasyPark 17919); abbonamento mensile €13",
+              "max": null,
+              "q": "Via Chiusaforte",
+              "pos": [
+                46.0812,
+                13.2232
+              ],
+              "night": null,
+              "verify": false
+            },
+            {
+              "id": "ud-macello",
+              "name": "Area Ex-Macello",
+              "from": "08:00",
+              "to": "20:00",
+              "days": "lun-sab",
+              "allDays": false,
+              "rate": 0.4,
+              "tiers": "€0,40 = 1 ora; massimo €2,00 al giorno (cod. InPark 5, EasyPark 17918); abbonamento mensile H24 €25",
+              "max": null,
+              "q": "Via Cecilia Gradenigo Sabbadini 3",
+              "pos": [
+                46.0537,
+                13.2288
+              ],
+              "night": null,
+              "verify": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sosta Chiara</title>
+<meta name="description" content="Zone blu, tariffe e promemoria di scadenza della sosta in 13 città italiane. Gratis, senza pagamenti, a solo scopo informativo.">
+<meta name="theme-color" content="#1f56c4">
+<link rel="canonical" href="https://www.alessandropezzali.it/sostachiara/">
+<!-- Anteprima del link su WhatsApp, LinkedIn, Facebook, Telegram, X -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sosta Chiara">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://www.alessandropezzali.it/sostachiara/">
+<meta property="og:title" content="Sosta Chiara – Una riga blu: dipende.">
+<meta property="og:description" content="Si paga adesso? Quanto? Fino a quando? Zone blu e promemoria di scadenza in 13 città. Gratis, senza registrazione, senza dati.">
+<meta property="og:image" content="https://www.alessandropezzali.it/sostachiara/og-image.jpg">
+<meta property="og:image:secure_url" content="https://www.alessandropezzali.it/sostachiara/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sosta Chiara: una riga bianca, puoi restare; una riga gialla, non è per te; una riga blu, dipende.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sosta Chiara – Una riga blu: dipende.">
+<meta name="twitter:description" content="Zone blu e promemoria di scadenza in 13 città. Gratis, senza registrazione, senza dati.">
+<meta name="twitter:image" content="https://www.alessandropezzali.it/sostachiara/og-image.jpg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="update" class="update" role="status" hidden>
+  <span>È disponibile una nuova versione di Sosta Chiara.</span>
+  <button id="updateBtn">Aggiorna</button>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="sign" aria-hidden="true">P</div>
+      <div><h1>Sosta Chiara</h1><p class="sub">Zone, tariffe e promemoria</p></div>
+    </div>
+    <label class="cityPick"><span class="sr">Città</span>
+      <select id="city" aria-label="Città"></select>
+    </label>
+  </header>
+
+  <p class="disc-strip">Solo informativo: i dati possono essere errati o non aggiornati. Fa fede la segnaletica sul posto. <button class="linkbtn" data-legal>Note legali</button></p>
+
+  <section id="meter" aria-live="polite"></section>
+
+  <div class="mapbox">
+    <div id="map" role="region" aria-label="Mappa delle zone"></div>
+    <button id="near" class="mapbtn">Vicino a me</button>
+  </div>
+
+  <input id="q" class="search" type="search" placeholder="Cerca una zona o una via" aria-label="Cerca zona">
+  <div id="cityNote" class="notice" hidden></div>
+  <div id="list" class="list"></div>
+
+  <footer>
+    <p id="src"></p>
+    <p>Sosta Chiara non è collegata ad alcun Comune o gestore della sosta e non permette di pagare. Paga al parcometro o con un'app accreditata.</p>
+    <p>Mappe © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>. Posizioni delle zone indicative.</p>
+    <p><button class="linkbtn" data-legal>Note legali e privacy</button> · <a href="https://github.com/pezzaliapp/sostachiara/issues" target="_blank" rel="noopener">Segnala un errore</a> · <span id="ver"></span></p>
+  </footer>
+</div>
+
+<!-- Scheda zona -->
+<div id="scrim" class="scrim" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sTitle">
+    <h2 id="sTitle"></h2>
+    <dl class="facts" id="sFacts"></dl>
+    <div id="sTip" class="tip" hidden></div>
+    <div id="sWarn" class="notice" hidden></div>
+    <div class="dur"><span>Durata prevista</span><strong id="sDur"></strong></div>
+    <input id="sRange" type="range" min="10" max="240" step="5" value="60" aria-label="Durata in minuti">
+    <div class="dur"><span>Costo stimato</span><strong id="sCost"></strong></div>
+    <p class="fine">Stima indicativa. Il promemoria non è un titolo di sosta: devi comunque pagare al parcometro o con un'app accreditata.</p>
+    <button id="sStart" class="cta">Avvia promemoria</button>
+    <div class="two">
+      <a id="sNav" class="ghost" target="_blank" rel="noopener">Portami qui</a>
+      <button id="sShow" class="ghost">Mostra sulla mappa</button>
+    </div>
+    <button id="sClose" class="ghost">Chiudi</button>
+  </div>
+</div>
+
+<!-- Note legali -->
+<div id="legal" class="scrim" hidden>
+  <div class="sheet legal" role="dialog" aria-modal="true" aria-labelledby="lTitle">
+    <h2 id="lTitle">Prima di usare Sosta Chiara</h2>
+    <div class="legaltext">
+      <h3>1. Cos'è l'app</h3>
+      <p>Sosta Chiara è un servizio gratuito a scopo esclusivamente informativo. Mostra in modo semplificato orari e tariffe della sosta su strada e offre un promemoria di scadenza. Non è un servizio ufficiale, non è collegata né autorizzata da alcun Comune, società di gestione della sosta, Polizia Locale o app di pagamento, e non consente di pagare la sosta.</p>
+      <h3>2. I dati possono essere sbagliati</h3>
+      <p>Orari, tariffe, zone, durate massime, festività e posizioni sulla mappa sono raccolti da fonti pubbliche e possono essere incompleti, imprecisi o non aggiornati. Le regole cambiano spesso e possono variare da strada a strada, per eventi, mercati, lavori, pulizia strade, ordinanze temporanee o stagioni. Le indicazioni "a pagamento ora" e "gratis ora" e il costo stimato sono calcoli automatici approssimativi.</p>
+      <h3>3. Fa fede solo la segnaletica</h3>
+      <p>Ai sensi del Codice della Strada, le uniche regole valide sono quelle indicate dalla segnaletica stradale presente sul posto e dalle ordinanze del Comune. In caso di differenze tra l'app e la segnaletica, vale sempre la segnaletica. Prima di parcheggiare devi leggere i cartelli e verificare divieti, permessi, zone riservate (residenti, carico/scarico, disabili, ZTL) e orari.</p>
+      <h3>4. Il promemoria non è un pagamento</h3>
+      <p>Avviare un promemoria non equivale a pagare la sosta e non è un titolo di sosta. Le notifiche, i suoni e gli eventi di calendario possono non arrivare o arrivare in ritardo (telefono spento o scarico, modalità risparmio energetico, permessi negati, browser chiuso, errori del dispositivo). Resta tua responsabilità controllare l'ora di scadenza.</p>
+      <h3>5. Responsabilità</h3>
+      <p>Sei l'unico responsabile del corretto parcheggio del tuo veicolo e del pagamento della sosta. L'autore dell'app non risponde di sanzioni amministrative (multe per sosta vietata, sosta non pagata, sosta oltre il tempo consentito, accesso in ZTL o altro), rimozioni forzate, blocchi del veicolo, costi, danni o pregiudizi di qualsiasi tipo derivanti dall'uso o dal mancato funzionamento dell'app o dall'affidamento sulle informazioni che mostra, nei limiti massimi consentiti dalla legge. L'app è fornita "così com'è", senza garanzie di esattezza, completezza, disponibilità o idoneità a uno scopo.</p>
+      <h3>6. Privacy</h3>
+      <p>L'app non richiede registrazione e non raccoglie dati personali. La posizione, se la autorizzi, è usata solo sul tuo dispositivo per mostrare le zone vicine e non viene inviata all'autore. Le soste e le preferenze sono salvate solo nel tuo browser. Le tessere della mappa sono scaricate dai server di OpenStreetMap, che ricevono l'indirizzo IP come per qualsiasi sito web (vedi la <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy di OSM</a>). Il pulsante "Portami qui" apre l'app di mappe del tuo telefono (Mappe di Apple o Google Maps), che tratta i dati secondo le proprie condizioni. Il sito è ospitato su GitHub Pages.</p>
+      <h3>7. Segnalazioni</h3>
+      <p>Se trovi un dato sbagliato puoi segnalarlo su <a href="https://github.com/pezzaliapp/sostachiara/issues" target="_blank" rel="noopener">GitHub</a>. Le correzioni non sono garantite né immediate.</p>
+    </div>
+    <label class="accept"><input type="checkbox" id="lCheck"> Ho letto e accetto queste condizioni. So che devo sempre verificare la segnaletica e pagare la sosta con i mezzi ufficiali.</label>
+    <button id="lOk" class="cta" disabled>Accetto e continuo</button>
+    <button id="lClose" class="ghost" hidden>Chiudi</button>
+  </div>
+</div>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
